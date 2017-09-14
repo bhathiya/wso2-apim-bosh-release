@@ -1,6 +1,6 @@
 # WSO2 API Manager BOSH Release
 
-A BOSH release for deploying Apache WSO2 API Manager on BOSH Director:
+A BOSH release for deploying WSO2 API Manager on BOSH Director:
 
 ## Quick Start Guide
 
