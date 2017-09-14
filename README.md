@@ -42,14 +42,9 @@ A BOSH release for deploying WSO2 API Manager on BOSH Director:
     bosh -e vbox login
     ```
 
-5. Download the blobs for oraclejdk and wso2apim:
+5. Download Oracle JDK 1.8 from Oracle website and WSO2 API Manager 2.1.0 via WSO2 Update Manager (WUM).
 
-    ```
-    wget https://java-buildpack.cloudfoundry.org/wso2apim/wso2apim-8.5.5.tar.gz
-    wget https://java-buildpack.cloudfoundry.org/oraclejdk-jdk/trusty/x86_64/oraclejdk-1.7.0_51.tar.gz
-    ```
-
-6. Add the blobs:
+6. Add above distributions as blobs:
 
     ```bash
     bosh -e vbox add-blob jdk-8u144-linux-x64.tar.gz oraclejdk/jdk-8u144-linux-x64.tar.gz
