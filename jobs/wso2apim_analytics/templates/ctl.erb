@@ -78,19 +78,16 @@ case $1 in
     log_debug "JAVA_BINARY: ${JAVA_BINARY}"
 
     pushd ${WSO2_APIM_ANALYTICS_PKG_HOME}
-    archive=`ls wso2am*zip`
+    archive=`ls wso2am-analytics*zip`
     unzip $archive
-    cd wso2am*
+    cd wso2am-analytics*
     WSO2_APIM_ANALYTICS_HOME=`pwd`
 
-    # Here any config files your application needs for ex:
-    # conf_file=`ls $JOB_DIR/config/*.xml`
-    # cp ${conf_file} ${WSO2_APIM_ANALYTICS_HOME}/conf
+    # Here any config files your application needs:
+    cp -r $JOB_DIR/config/* ${WSO2_APIM_ANALYTICS_HOME}/repository/conf/
 
-    # Here add any database driver your application needs for ex:
-    # pushd ${POSTGRES_DRIVER_HOME}
-    # driver_file=`ls postgres*.jar`
-    # cp ${driver_file} ${WSO2_APIM_ANALYTICS_HOME}/lib
+    # Here add any libraries your application needs:
+    cp /var/vcap/packages/mysqldriver/* ${WSO2_APIM_ANALYTICS_HOME}/repository/components/lib/
 
     $WSO2_APIM_ANALYTICS_HOME/bin/wso2server.sh start
 
